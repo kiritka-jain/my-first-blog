@@ -18,3 +18,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    objects = None
+    text = models.CharField(max_length=100)
+    created_date = models.DateTimeField(default=timezone.now)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    like = models.IntegerField(default=0)
