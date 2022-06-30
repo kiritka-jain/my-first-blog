@@ -59,12 +59,12 @@ h4 {
 
 .btn-secondary,
 .btn-secondary:visited {
-    color: #C25100;
+    color: black;
     background: none;
     border-color: #C25100;
 }
 
 .btn-secondary:hover {
-    color: #FFFFFF;
+    color: black;
     background-color: #C25100;
 }

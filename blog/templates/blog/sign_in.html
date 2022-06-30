@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Sign In </h2>
+    <div class="container">
+        <form action="/sign_in" method="POST">
+            {% csrf_token %}
+            <label for="">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required >
+            <br>
+
+            <label for="">Password</label>
+            <input type="text" id="password" name="password" placeholder="enter your password" required >
+            <br>
+
+           <form action="{% url 'sign_in'%}" method="POST">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-secondary">Sign In</button>
+            </form>
+
+        </form>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Sign Up</h2>
+    <div class="container">
+        <form action="/sign_up" method="POST">
+            {% csrf_token %}
+            <label for="">Username</label>
+            <input type="text" id="username" name="username" placeholder="Create a username
+            (only letters and numbers)" required >
+            <br>
+
+            <label for="">First Name</label>
+            <input type="text" id="first_name" name="first_name" placeholder="enter your first name
+            (only letters)" required >
+            <br>
+
+            <label for="">Last Name</label>
+            <input type="text" id="last_name" name="last_name" placeholder="enter your last name
+            (only letters)" required >
+            <br>
+
+            <label for="">Email Address</label>
+            <input type="text" id="email" name="email" placeholder="enter a valid email id" required >
+            <br>
+
+            <label for="">Password</label>
+            <input type="text" id="password" name="password" placeholder="Create a password
+            (only letters and numbers)" required >
+            <br>
+
+            <label for="">Confirm Password</label>
+            <input type="text" id="confirm_password" name="confirm_password" placeholder="Re-enter your password
+            (only letters and numbers)" required >
+            <br>
+
+           <form action="{% url 'sign_up'%}" method="POST">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-secondary">Sign Up</button>
+            </form>
+
+        </form>
+
+    </div>
+{% endblock %}

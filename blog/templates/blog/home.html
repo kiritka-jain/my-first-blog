@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+        <h3>You are successfully logged in!!!</h3>
+        <button
+                onclick="location.href='{% url 'sign_out' %}'" type="submit" class="save btn btn-secondary">Sign out
+        </button>
+        {% else %}
+        <button
+                onclick="location.href='{% url 'sign_up' %}'" type="submit" class="save btn btn-secondary">Sign up
+        </button>
+        <button
+                onclick="location.href='{% url 'sign_in' %}'" type="submit" class="save btn btn-secondary">Sign in
+        </button>
+        {% endif%}
+
+{% endblock %}
