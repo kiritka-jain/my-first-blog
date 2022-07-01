@@ -94,6 +94,9 @@ def post_edit(request, pk):
     if not request.user.is_authenticated:
         return redirect('sign_in')
     post = get_object_or_404(Post, pk=pk)
+    if request.user != post.author:
+        messages.error(request, "You cannot edit this post.")
+        return redirect('post_detail', pk=post.pk)
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
